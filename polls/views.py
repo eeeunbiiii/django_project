@@ -7,7 +7,7 @@ from .models import Choice, Question
 
 class IndexView(generic.ListView): #listview 제너릭뷰 사용 (오브젝트 리스트 보여줌)
     template_name = 'polls/index.html' #원하는 템플릿 이름 임의로 지정
-    context_object_name = 'lastest_question_list' # 변수 이름 임의로 지정
+    context_object_name = 'latest_question_list' # 변수 이름 임의로 지정
 
     def get_queryset(self):
         """Return the last five published questions."""
