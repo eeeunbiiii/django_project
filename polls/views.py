@@ -42,3 +42,4 @@ def vote(request, question_id):
     return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
     # reverse()함수는 우리가 보고싶은 뷰의 이름과 뷰를 가리키는 url 패턴의 변수를 받는다
     # 위 같은 경우 , /polls/3/results/를 리턴하게 됨
+    
