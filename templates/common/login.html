@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+{% block section %}
+<form method="post" action="{% url 'common:login' %}">
+    {% csrf_token %}
+    <label for="username">ID</label>
+    <input type="text" name="username" id="username"
+        value="{{ form.username.valuedefault_if_none:''}}">
+    <label for="password">PW</label>
+    <input type="password" name="password" id="password"
+        value="{{ form.password.valuedefault_if_none:''}}">
+    <button type="submit">login</button>
+</form>
+{% endblock section %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="kor">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Polls</title>
+    </head>
+    <body>
+        <!--메뉴바-->
+        <nav class="navbar">
+            <ul class="navbar_menu">
+                <li class="navbar_menuitem">
+                    <a href="{% url 'home:home' %}">Home</a>
+                </li>
+                <li class="navbar_menuitem">
+                    <a href="{% url 'polls:index' %}">polls</a>
+                </li>
+                <li>
+                    <a class="navbar_menuitem" href="{url 'common:login'}">login</a>
+                </li>
+            
+            </ul>
+        </nav>
+
+        <!--다른 html에서 임의 작성-->
+        {% block section %}
+       
+        {% endblock section %}
+    </body>
+</html>
