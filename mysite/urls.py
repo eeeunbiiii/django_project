@@ -19,7 +19,9 @@ from django.urls import include, path
 
 
 urlpatterns = [
-    path('', include('home.urls')),
+    path('', include('home.urls')), 
+    path('common/', include('common.urls')),
     path('polls/', include('polls.urls')), #update
     path('admin/', admin.site.urls),
+  
 ]
