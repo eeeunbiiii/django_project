@@ -23,5 +23,6 @@ urlpatterns = [
     path('common/', include('common.urls')),
     path('polls/', include('polls.urls')), #update
     path('admin/', admin.site.urls),
+    path('sociallogin/',include('sociallogin.urls')),
   
 ]

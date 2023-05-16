@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-
+    #sociallogin
+    'sociallogin',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -141,6 +142,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID=1
+LOGIN_REDIRECT_URL = '/'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google':{
