@@ -1,5 +1,7 @@
 {% extends "base.html" %} {% block section %}
-<section>
-    <h1>home : 안녕하세요!</h1>
-</section>
+{% if user.is_authenticated %}
+<h1> {{ user.username }}님 안녕하세요 :D </h1>
+{% else %}
+<h1>로그인이 필요합니다.</h1>
+{% endif %}
 {% endblock section%}
