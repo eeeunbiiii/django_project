@@ -147,8 +147,8 @@ LOGIN_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
     'google':{
         'APP' : {
-            'client_id' : '144460651854-uajgm29ckimdgu8nncqh1j8qheqsf087.apps.googleusercontent.com',
-            'secret': '456',
+            'client_id' : '144460651854-7edr4r3am2l5afl1d0jo0q5nhfa6i9pb.apps.googleusercontent.com',
+            'secret': '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',
             'key':'',
         }
     }

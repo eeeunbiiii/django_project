@@ -20,6 +20,8 @@
                     <a href = "{% url 'common:logout' %}">logout</a>
                     {% else %}
                     <a href="{% url 'common:login' %}">login</a>
+                    <span>||</span>
+                    <a href="{% url 'sociallogin' %}">소셜 로그인</a>
                     {% endif %}
                     
                     {% if not user.is_authenticated %}
