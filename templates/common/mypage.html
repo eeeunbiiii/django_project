@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block section %}
+this is my page
+<br>
+<button onclick="redirectToSetting()">Setting</button>
+
+<script>
+function redirectToSetting() {
+  window.location.href = "{% url 'common:setting' %}";
+}
+</script>
+{% endblock %}

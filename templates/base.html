@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="kor">
     <head>
@@ -5,6 +6,7 @@
         <title>Polls</title>
     </head>
     <body>
+        <img src="{% static 'home/banana.jpeg' %}" style="width:100px;"> <!--static 이미지 추가-->
         <!--메뉴바-->
         <nav class="navbar">
             <ul class="navbar_menu">
@@ -17,6 +19,8 @@
                     
                     <span>||</span>
                     {% if user.is_authenticated %}
+                    <a href = "{% url 'common:mypage' %}">my page</a>
+                    <span>||</span>
                     <a href = "{% url 'common:logout' %}">logout</a>
                     {% else %}
                     <a href="{% url 'common:login' %}">login</a>
