@@ -1,4 +1,6 @@
 {% extends "base.html" %} 
+{% load socialaccount %}
+{% providers_media_js %}
 {% block section %}
 <form method="post" action="{% url 'common:login' %}">
     {% csrf_token %}
@@ -11,4 +13,5 @@
         value="{{ form.password.value|default_if_none:''}}">
     <button type="submit">login</button>
 </form>
+<a href="{% provider_login_url 'google' %}">구글 로그인</a>
 {% endblock section %}
