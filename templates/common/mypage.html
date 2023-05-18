@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block section %}
-this is my page
+<h1> this is {{ user.username }}'s page </h1>
 <br>
 <button onclick="redirectToSetting()">Setting</button>
-
 <script>
 function redirectToSetting() {
   window.location.href = "{% url 'common:setting' %}";
