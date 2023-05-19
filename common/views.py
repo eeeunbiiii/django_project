@@ -30,7 +30,7 @@ def setting(request):
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('comon/mypage')
+            return redirect('common:mypage')
     else:
         form=ProfileForm(instance=profile)
     return render(request, 'common/mypage/setting.html', {'form': form})
