@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from common.forms import UserForm
+from common.forms import UserForm, ProfileForm
+from common.models import Profile
 
 def signup(request):
     if request.method == "POST":
@@ -20,4 +21,16 @@ def mypage(request):
     return render(request, 'common/mypage.html')
 
 def setting(request):
-    return render(request, 'common/mypage/setting.html')
+    try:
+        profile = request.user.profile  # 현재 로그인된 사용자의 프로필 가져오기
+    except Profile.DoesNotExist:
+        profile = Profile(user=request.user)  # 프로필이 없을 경우 생성
+    
+    if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('comon/mypage')
+    else:
+        form=ProfileForm(instance=profile)
+    return render(request, 'common/mypage/setting.html', {'form': form})
