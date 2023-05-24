@@ -18,7 +18,12 @@ def signup(request):
     return render(request, 'common/signup.html', {'form': form})
 
 def mypage(request):
-    return render(request, 'common/mypage.html')
+    try :
+        profile = request.user.profile
+    except Profile.DoesNotExist:
+        profile = None
+    return render(request, 'common/mypage.html', {'profile':profile})
+#Profile객체 가져오고 profile변수를 템플릿으로 전달
 
 def setting(request):
     try:

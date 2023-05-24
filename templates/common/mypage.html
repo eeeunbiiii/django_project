@@ -1,8 +1,23 @@
 {% extends "base.html" %}
 {% block section %}
 <h1> this is {{ user.username }}'s page </h1>
+
+<p> 
+{% if profile.profile_image %}
+<img src="{{ profile.profile_image.url }}" style="width:80px;" alt="Profile Image">
+{% endif %}
 <br>
+email : {{ user.email }}
+<br>
+{% if profile.bio %}
+  {{ profile.bio }}
+{% endif %}
+
+</p>
+
 <button onclick="redirectToSetting()">Setting</button>
+
+
 <script>
 function redirectToSetting() {
   window.location.href = "{% url 'common:setting' %}";
