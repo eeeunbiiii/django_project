@@ -1,4 +1,7 @@
 {% load static %}
+{% if user.is_authenticated %}
 <h1>This is list html</h1>
+
+{% endif %}
 {% block section %}
 {% endblock section %}
