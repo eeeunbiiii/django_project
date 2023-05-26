@@ -1,6 +1,9 @@
 {% extends "base.html" %} {% block section %}
 {% if user.is_authenticated %}
 <h1> {{ user.username }}님 안녕하세요 :D </h1>
+{% for user.username in user %}
+<li><a href="{% url 'common:mypage' %}">{{ user.username }}</a></li>
+{% endfor %}
 {% else %}
 <h1>로그인이 필요합니다.</h1>
 {% endif %}
