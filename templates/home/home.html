@@ -6,7 +6,7 @@
 <br>
 <h2>사용자 목록</h2>
 {% for user in userlist %}
-        <li>{{ user.username }}</li>
+        <li><a href = "{% url 'common:mypage' user.id %}?selected_user_id={{user.id}}">{{ user.username }}</a></li>
 {% endfor %}
 {% else %}
 <h1>로그인이 필요합니다.</h1>
