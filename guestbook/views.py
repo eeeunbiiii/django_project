@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 from guestbook.models import Guestbook
@@ -16,7 +17,7 @@ def write(request) :
     guestbook.contents = request.POST['contents']
     guestbook.save()
 
-    return HttpResponseRedirect('list')
+    return HttpResponseRedirect(reverse('guestbook:list'))
 
 def deleteform(request, id=0):
     return render(request, 'guestbook/deleteform.html', {'id':id})
@@ -26,7 +27,7 @@ def delete(request):
     password = request.POST['password']
 
     guestbook = Guestbook.objects.filter(id=id)
-    if guestbook[0].passworld == password :
+    if guestbook[0].password == password :
         guestbook.delete()
 
-    return HttpResponseRedirect('list')
+    return HttpResponseRedirect(reverse('guestbook:list'))

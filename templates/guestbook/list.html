@@ -1,7 +1,63 @@
-{% load static %}
-{% if user.is_authenticated %}
-<h1>This is list html</h1>
 
+{% if user.is_authenticated %}
+<h2>방명록</h2>
+<form action="{% url 'guestbook:write' %}" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name"></td>
+            <td>비밀번호</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td colspan=4><textarea name="contents" id="contents"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan=4 align=right><input type="submit" value="확인"></td>
+        </tr>
+    </table>
+</form>
+<style>
+    ul{
+        list-style: none;
+    }
+</style> 
+<ul>
+    <li>
+        {% for guestbook in guestbooklist %}
+        {% if forloop.first %}
+            <table style='border-collapse: collapse; border:10px solid; border-color: aquamarine;'>
+                <tr>
+                    <td>[{{ forloop.revcounter }}]</td>
+                    <td>{{ guestbook.name }}</td>
+                    <td>{{ guestbook.reg_date|date:'Y-m-d H:i' }}</td>
+                    <td><a href="{% url 'guestbook:deleteform' guestbook.id %}">삭제</a></td>
+                </tr>
+                <tr>
+                    <td colspan=4>
+                        {{ guestbook.contents|linebreaks }}
+                    </td>
+                </tr>
+            </table>
+        {% else %}
+            <table>
+                <tr>
+                    <td>[{{ guestbooklist|length|add:'-'|add:forloop.counter0|add:1 }}]</td>
+                    <td>{{ guestbook.name }}</td>
+                    <td>{{ guestbook.reg_date|date:'Y-m-d H:i' }}</td>
+                    <td><a href="{% url 'guestbook:deleteform' guestbook.id %}">삭제</a></td>
+                </tr>
+                <tr>
+                    <td colspan=4>
+                        {{ guestbook.contents|linebreaks }}
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+        <br>
+        {% endfor %}
+        <br>
+    </li>
+</ul>
 {% endif %}
-{% block section %}
-{% endblock section %}
