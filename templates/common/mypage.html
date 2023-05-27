@@ -15,7 +15,9 @@ email : {{ user.email }}
 
 </p>
 
+{% if selected_user.username == user.username %}
 <button onclick="redirectToSetting()">Setting</button>
+{% endif %}
 
 {% include "guestbook/list.html" %}
 
