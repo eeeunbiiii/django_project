@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block section %}
 
 <div><h1>게시판</h1></div>
+<div><a href="{% url 'post:post_write' %}"><button>글쓰기</button></a></div>
 
 {% endblock section %}
