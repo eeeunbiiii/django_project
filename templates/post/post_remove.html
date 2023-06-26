@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block section %}
+<form method="POST">
+    {% csrf_token %}
+    <h2>{{ Post.title }} - 정말 삭제하시겠습니까?</h2>
+    <button type="submit">확인</button>
+</form>
+<a href="{% url 'post:post_list' %}">목록으로 돌아가기</a>
+{% endblock section %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block section %}
-<h1> this is {{ user.username }}'s page </h1>
+<h1> this is {{ selected_user.username }}'s page </h1>
 
 <p> 
 {% if profile.profile_image %}
@@ -15,12 +15,15 @@ email : {{ user.email }}
 
 </p>
 
+{% if selected_user.username == user.username %}
 <button onclick="redirectToSetting()">Setting</button>
+{% endif %}
 
+{% include "guestbook/list.html" %}
 
 <script>
 function redirectToSetting() {
-  window.location.href = "{% url 'common:setting' %}";
+  window.location.href = "{% url 'common:setting' id=user.id %}";
 }
 </script>
 {% endblock %}
