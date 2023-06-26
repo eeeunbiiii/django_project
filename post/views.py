@@ -1,15 +1,25 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+from .models import Post
 
 def post_list(request):
-    login_session = request.session.get('login_session', '')
-    context = {'login_session' : login_session}
+    postlist = Post.objects.all() 
+    #post title들 가져옴
 
-    return render(request, 'post/post_list.html', context)
+    return render(request, 'post/post_list.html', {'postlist':postlist})
 
 
 def post_write(request):
-    login_session = request.session.get('login_session', '')
-    context = {'login_session' : login_session}
+    if request.method == 'POST':
+        new_post = Post.objects.create(
+            title = request.POST['title'],
+            contents = request.POST['contents'],
+        )
+        return HttpResponseRedirect(reverse('post:post_list'))
+    return render(request, 'post/post_write.html')
 
-    return render(request, 'post/post_write.html', context)
-# Create your views here.
+def posting(request, pk):
+    post = Post.objects.get(pk=pk)
+
+    return render(request, 'post/posting.html', {'post':post})

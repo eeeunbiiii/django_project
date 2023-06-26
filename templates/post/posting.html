@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block section %}
+        
+<h1>{{post.title}}</h1>
+<p>{{post.contents}}</p>
+<a href="{% url 'post:post_list' %}"><button>목록</button></a>
+<a href="{% url 'post:post_write' %}"><button>글쓰기</button></a>
+
+{% endblock section %}
