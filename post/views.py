@@ -23,3 +23,10 @@ def posting(request, pk):
     post = Post.objects.get(pk=pk)
 
     return render(request, 'post/posting.html', {'post':post})
+
+def post_remove(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return HttpResponseRedirect(reverse('post:post_list'))
+    return render(request, 'post/post_remove.html', {'Post':post})
