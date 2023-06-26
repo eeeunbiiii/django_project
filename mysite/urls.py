@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sociallogin/',include('sociallogin.urls')),
     path('guestbook/', include('guestbook.urls')),
+    path('post/', include('post.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
