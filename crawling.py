@@ -7,10 +7,10 @@ django.setup()
 from home.models import Velog
 
 def title_velog():
-    req = requests.get('https://ko.wikipedia.org/wiki/%ED%8F%AC%ED%84%B8:%EC%9A%94%EC%A6%98_%ED%99%94%EC%A0%9C')
+    req = requests.get('https://velog.io/@eunbi2222')
     html = req.content.decode('utf-8', 'replace')
     soup = BeautifulSoup(html, 'html.parser')
-    velog_title = soup.select('#mw-content-text > div.mw-parser-output > table.vevent > tbody > tr > td > table > tbody > tr:nth-child(2) > td > ul > li:nth-child(1)')
+    velog_title = soup.select('#root > div.sc-efQSVx.sc-cTAqQK.hKuDqm > div.sc-Galmp.gifMhn.sc-jlRLRk.cluXqC > div:nth-child(4) > div.sc-uojGG.cQVKst > div > div:nth-child(1)')
 
     velog_list = []
     for title in velog_title:

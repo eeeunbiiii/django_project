@@ -8,6 +8,12 @@
 {% for user in userlist %}
         <li><a href = "{% url 'common:mypage' user.id %}?selected_user_id={{user.id}}">{{ user.username }}</a></li>
 {% endfor %}
+<ul>
+        <h2>Velog</h2>
+        {% for title in velog_titles %}
+          <li>{{ title }}</li>
+        {% endfor %}
+      </ul>
 {% else %}
 <h1>로그인이 필요합니다.</h1>
 {% endif %}
