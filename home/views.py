@@ -6,9 +6,9 @@ from .models import Velog
 
 def home(request) :
     userlist = User.objects.all().order_by('id')
-    velog_titles = Velog.objects.values_list('title', flat=True)  
+    veloglist = Velog.objects.all()
     data = {
         'userlist': userlist,
-        'velog_titles': velog_titles, 
+        'veloglist': veloglist, 
     }
     return render(request, 'home/home.html', data)

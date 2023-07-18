@@ -7,4 +7,3 @@ class Profile(models.Model):
     bio = models.CharField(max_length=64, blank=True)
     profile_image = models.ImageField(upload_to='profile_image/', blank=True)
 
-# Create your models here.
