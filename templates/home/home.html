@@ -20,8 +20,8 @@
           <tbody>
             {% for velog in veloglist %}
               <tr>
-                <td>{{ velog.title }} | </td> 
-                <td>{{ velog.author }} | </td> 
+                <td><a href = "https://velog.io{{ velog.url }}">{{ velog.title }}</a> </td> 
+                <td>{{ velog.author }} </td> 
                 <td>{{ velog.date }}</td>
               </tr>
             {% endfor %}
