@@ -5,5 +5,4 @@ class Velog(models.Model):
     date = models.TextField(default='')
     
     def __str__(self):
-        return self.title
-# Create your models here.
+        return f'Velog({self.title}, {self.author}, {self.date})'
